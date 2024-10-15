@@ -1,11 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
-import { ChevronUp, ChevronDown, Play, Share2 } from "lucide-react";
+import { ChevronUp, ChevronDown, Share2 } from "lucide-react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { signOut, useSession } from "next-auth/react"; // Import NextAuth functions
-import { useRouter } from 'next/navigation'; // Import useRouter for redirection
 
 interface Video {
   id: string;
@@ -23,11 +22,11 @@ export default function Component() {
   const [queue, setQueue] = useState<Video[]>([
     { id: "EiiOYwqk3A0", title: "Aditya Rikhari - FAASLE", votes: 0 },
     { id: "dnDqQOYMd10", title: "Make You Mine (Official Music Video)", votes: 0 },
+    { id: "6ZwwapPikyQ", title: "Samay Samjhayega - Mohit lalwani |Surya Raj Kamal", votes: 0 },
   ]);
   const [currentlyPlaying, setCurrentlyPlaying] = useState<Video | null>(null);
   const [canShare, setCanShare] = useState(false);
   const [userVotes, setUserVotes] = useState<{ [key: string]: boolean }>({}); // Track user votes
-  const router = useRouter(); // Initialize router for redirection
 
   useEffect(() => {
     // Set a default video to play when the component mounts
@@ -246,7 +245,7 @@ export default function Component() {
                 <img
                   src={`https://img.youtube.com/vi/${video.id}/default.jpg`}
                   alt={video.title}
-                  className="h-16 w-16 rounded-md shadow-sm"
+                  className="h-16 w-24 rounded-md shadow-sm"
                 />
                 <div>
                   <h3 className="text-lg font-semibold">{video.title}</h3>

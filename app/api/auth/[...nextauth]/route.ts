@@ -22,7 +22,9 @@ const handler = NextAuth({
             provider: "Google",
           },
         });
-      } catch (e) {}
+      } catch (e) {
+        console.log(e)
+      }
       return true;
     },
   },

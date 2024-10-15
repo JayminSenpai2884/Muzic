@@ -1,9 +1,8 @@
 import { prismaClient } from "@/app/lib/db";
 import { NextRequest, NextResponse } from "next/server";
-import { Stream } from "stream";
-import { number, z } from "zod";
+import { z } from "zod";
 
-//@ts-ignore
+//@ts-expect-error: Third party NPM package
 import youtubesearchapi from "youtube-search-api";
 
 const YT_REGEX =

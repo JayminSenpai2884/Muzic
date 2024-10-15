@@ -1,11 +1,8 @@
 import { prismaClient } from "@/app/lib/db";
 import { getServerSession } from "next-auth";
-import { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-import { use } from "react";
-import { Stream } from "stream";
 
-export async function POST(req: NextRequest) {
+export async function POST() { // Removed req parameter
   const session = await getServerSession();
   const user = await prismaClient.user.findFirst({
     where: {
